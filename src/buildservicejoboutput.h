@@ -27,12 +27,18 @@
 #include <QtCore/QList>
 #include <QtCore/QSharedDataPointer>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT BuildServiceJobOutput
+#else
+class BuildServiceJobOutput
+#endif
 {
 public:
     typedef QList<BuildServiceJobOutput> List;

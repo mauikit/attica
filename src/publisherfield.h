@@ -25,12 +25,17 @@
 #define PUBLISHERFIELD_H
 
 #include "buildservice.h"
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
-
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT PublisherField
+#else
+class PublisherField
+#endif
 {
 public:
     typedef QList<PublisherField> List;

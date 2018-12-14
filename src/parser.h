@@ -33,7 +33,11 @@ namespace Attica
 {
 
 template <class T>
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Parser
+#else
+class Parser
+#endif
 {
 public:
     T parse(const QString &xml);

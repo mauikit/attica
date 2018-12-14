@@ -23,7 +23,9 @@
 #ifndef ATTICA_FOLDER_H
 #define ATTICA_FOLDER_H
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 #include <QList>
 #include <QSharedDataPointer>
 #include <QString>
@@ -34,7 +36,11 @@ namespace Attica
 /**
  * Represents a single mail folder
  */
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Folder
+#else
+class Folder
+#endif
 {
 public:
     typedef QList<Folder> List;

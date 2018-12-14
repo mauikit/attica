@@ -24,7 +24,10 @@
 #ifndef LISTJOB_H
 #define LISTJOB_H
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
+
 #include "getjob.h"
 
 class QNetworkRequest;
@@ -34,7 +37,12 @@ namespace Attica
 class Provider;
 
 template <class T>
+
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT ListJob : public GetJob
+#else
+class ListJob : public GetJob
+#endif
 {
 public:
     typename T::List itemList() const;

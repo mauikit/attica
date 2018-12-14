@@ -27,12 +27,18 @@
 #include <QList>
 #include <QSharedDataPointer>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Message
+#else
+class Message
+#endif
 {
 public:
     typedef QList<Message> List;

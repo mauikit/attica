@@ -27,12 +27,18 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 #include <QSharedData>
 #include <QString>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT DownloadDescription
+#else
+class DownloadDescription
+#endif
 {
 public:
 

@@ -28,7 +28,9 @@
 #include <QSharedDataPointer>
 #include <QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
@@ -36,7 +38,12 @@ namespace Attica
     The HomePageType class contains information about one home page type.
     It consists of an integer id and a home page type name.
  */
+
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT HomePageType
+#else
+class HomePageType
+#endif
 {
 public:
     typedef QList<HomePageType> List;

@@ -30,12 +30,17 @@
 #include <QtCore/QStringList>
 #include <QtCore/QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
-
+#endif
 namespace Attica
 {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT BuildServiceJob
+#else
+class BuildServiceJob
+#endif
 {
 public:
     typedef QList<BuildServiceJob> List;

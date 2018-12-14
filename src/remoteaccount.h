@@ -30,12 +30,18 @@
 #include <QStringList>
 #include <QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT RemoteAccount
+#else
+class RemoteAccount
+#endif
 {
 public:
     typedef QList<RemoteAccount> List;

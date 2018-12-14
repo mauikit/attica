@@ -27,7 +27,9 @@
 #include <QSharedDataPointer>
 #include <QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 #include "person.h"
 
 class QDateTime;
@@ -38,7 +40,11 @@ namespace Attica
 /**
  * Represents a single news item (also known as activity)
  */
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Activity
+#else
+class Activity
+#endif
 {
 public:
     typedef QList<Activity> List;

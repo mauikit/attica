@@ -25,7 +25,9 @@
 #include <QSharedDataPointer>
 #include <QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
@@ -33,7 +35,11 @@ namespace Attica
     The License class contains information about one license that the server offers.
     It consists of an integer id, a name and a link to a webpage describing the license.
  */
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT License
+#else
+class License
+#endif
 {
 public:
     typedef QList<License> List;

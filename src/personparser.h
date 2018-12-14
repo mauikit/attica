@@ -27,12 +27,16 @@
 #include "person.h"
 #include "parser.h"
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
-
+#endif
 namespace Attica
 {
-
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Person::Parser : public Attica::Parser<Person>
+#else
+class Person::Parser : public Attica::Parser<Person>
+#endif
 {
 private:
     Person parseXml(QXmlStreamReader &xml) override;

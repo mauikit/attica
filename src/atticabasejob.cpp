@@ -28,8 +28,11 @@
 #include <QNetworkReply>
 #include <QAuthenticator>
 
+#ifndef STATIC_MAUIKIT
 #include <attica_debug.h>
-#include <atticautils.h>
+#endif
+
+#include "atticautils.h"
 #include "platformdependent.h"
 
 using namespace Attica;
@@ -62,10 +65,10 @@ public:
             if (redirectUrl.isRelative()) {
                 QUrl baseUrl(request.url());
                 newUrl = baseUrl.resolved(redirectUrl);
-                qCDebug(ATTICA) << "resolving relative URL redirection to" << newUrl.toString();
+//                //qCDebug(ATTICA) << "resolving relative URL redirection to" << newUrl.toString();
             } else {
                 newUrl = redirectUrl;
-                qCDebug(ATTICA) << "resolving absolute URL redirection to" << newUrl.toString();
+//                //qCDebug(ATTICA) << "resolving absolute URL redirection to" << newUrl.toString();
             }
             return true;
         }
@@ -95,7 +98,7 @@ void BaseJob::dataFinished()
     // handle redirections automatically
     QUrl newUrl;
     if (d->redirection(newUrl)) {
-        //qCDebug(ATTICA) << "BaseJob::dataFinished" << newUrl;
+        ////qCDebug(ATTICA) << "BaseJob::dataFinished" << newUrl;
         QNetworkRequest request = d->m_reply->request();
         QNetworkAccessManager::Operation operation = d->m_reply->operation();
         if (newUrl.isValid() && operation == QNetworkAccessManager::GetOperation) {
@@ -112,7 +115,7 @@ void BaseJob::dataFinished()
 
     if (!error) {
         QByteArray data = d->m_reply->readAll();
-        //qCDebug(ATTICA) << "XML Returned:\n" << data;
+        ////qCDebug(ATTICA) << "XML Returned:\n" << data;
         parse(QString::fromUtf8(data.constData()));
         if (d->m_metadata.statusCode() == 100) {
             d->m_metadata.setError(Metadata::NoError);
@@ -138,13 +141,13 @@ void BaseJob::start()
 void BaseJob::doWork()
 {
     d->m_reply = executeRequest();
-    qCDebug(ATTICA) << "executing" << Utils::toString(d->m_reply->operation()) << "request for" << d->m_reply->url();
+    //qCDebug(ATTICA) << "executing" << Utils::toString(d->m_reply->operation()) << "request for" << d->m_reply->url();
     connect(d->m_reply, SIGNAL(finished()), SLOT(dataFinished()));
     connect(d->m_reply->manager(), SIGNAL(authenticationRequired(QNetworkReply*,QAuthenticator*)),
             this, SLOT(authenticationRequired(QNetworkReply*,QAuthenticator*)));
     connect(d->m_reply, static_cast<void(QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
       [](QNetworkReply::NetworkError code){
-          qCDebug(ATTICA) << "error found" << code;
+          //qCDebug(ATTICA) << "error found" << code;
     });
 }
 

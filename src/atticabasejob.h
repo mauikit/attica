@@ -29,7 +29,10 @@
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
+
 #include "metadata.h"
 
 class QNetworkReply;
@@ -38,7 +41,11 @@ namespace Attica
 {
 class PlatformDependent;
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT BaseJob : public QObject
+#else
+class BaseJob : public QObject
+#endif
 {
     Q_OBJECT
 

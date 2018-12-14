@@ -33,7 +33,9 @@
 #include <QUrl>
 
 #include "achievement.h"
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 #include "category.h"
 #include "forum.h"
 #include "itemjob.h"
@@ -107,7 +109,12 @@ class RemoteAccount;
  </pre>
  * The server provides the services specified in the services section, not necessarily all of them.
  */
+
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Provider
+#else
+class Provider
+#endif
 {
 public:
     Provider();

@@ -23,8 +23,9 @@
 #ifndef ATTICA_FORUM_H
 #define ATTICA_FORUM_H
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
-
+#endif
 #include "topic.h"
 
 #include <QDateTime>
@@ -34,7 +35,11 @@
 namespace Attica
 {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Forum
+#else
+class Forum
+#endif
 {
 public:
     typedef QList<Forum> List;

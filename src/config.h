@@ -26,14 +26,20 @@
 #include <QString>
 #include <QSharedDataPointer>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica {
 
 /**
  * Represents a server config
  */
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Config
+#else
+class  Config
+#endif
 {
   public:
     typedef QList<Config> List;

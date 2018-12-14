@@ -31,12 +31,18 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 #include <QSharedDataPointer>
 #include <QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT PrivateData
+#else
+class PrivateData
+#endif
 {
 public:
     class Parser;

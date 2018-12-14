@@ -26,13 +26,20 @@
 
 #include <QNetworkRequest>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
+
 #include "atticabasejob.h"
 
 namespace Attica
 {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT DeleteJob : public Attica::BaseJob
+#else
+class DeleteJob : public Attica::BaseJob
+#endif
 {
     Q_OBJECT
 

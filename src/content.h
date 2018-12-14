@@ -29,7 +29,10 @@
 #include <QSharedDataPointer>
 #include <QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
+
 #include "downloaddescription.h"
 #include "homepageentry.h"
 #include "icon.h"
@@ -42,7 +45,11 @@ namespace Attica
 /**
  * Represents a single content
  */
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Content
+#else
+class Content
+#endif
 {
 public:
     typedef QList<Content> List;

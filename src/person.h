@@ -29,12 +29,17 @@
 #include <QSharedDataPointer>
 #include <QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
-
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Person
+#else
+class Person
+#endif
 {
 public:
     typedef QList<Person> List;

@@ -26,8 +26,9 @@
 #include <QNetworkAccessManager>
 
 #include "platformdependent.h"
-#include <attica_debug.h>
-
+#ifndef STATIC_MAUIKIT
+#include "attica_export.h"
+#endif
 using namespace Attica;
 
 GetJob::GetJob(PlatformDependent *internals, const QNetworkRequest &request)

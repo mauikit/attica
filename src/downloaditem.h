@@ -27,13 +27,20 @@
 #include <QSharedDataPointer>
 #include <QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
+
 #include "downloaddescription.h"
 
 namespace Attica
 {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT DownloadItem
+#else
+class DownloadItem
+#endif
 {
 public:
     typedef QList<DownloadItem> List;

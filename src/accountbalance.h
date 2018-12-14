@@ -24,7 +24,9 @@
 #include <QSharedDataPointer>
 #include <QString>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
@@ -32,7 +34,12 @@ namespace Attica
 /**
  * Represents the money in the account of the user
  */
+
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT AccountBalance
+#else
+class AccountBalance
+#endif
 {
 public:
     typedef QList<AccountBalance> List;

@@ -28,7 +28,9 @@
 #include <QSharedDataPointer>
 #include <QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
@@ -36,7 +38,11 @@ namespace Attica
     The Icon class contains information about an icon.
     It consists of a Url and icon size information.
  */
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Icon
+#else
+class Icon
+#endif
 {
 public:
     typedef QList<Icon> List;

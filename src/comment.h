@@ -24,8 +24,9 @@
 #ifndef ATTICA_COMMENT_H
 #define ATTICA_COMMENT_H
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
-
+#endif
 #include <QDateTime>
 #include <QSharedDataPointer>
 
@@ -33,8 +34,11 @@
 
 namespace Attica
 {
-
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Comment
+#else
+class Comment
+#endif
 {
 public:
     typedef QList<Comment> List;

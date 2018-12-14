@@ -27,11 +27,16 @@
 #include "config.h"
 #include "parser.h"
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
-
+#endif
 namespace Attica {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Config::Parser : public Attica::Parser<Config>
+#else
+class Config::Parser : public Attica::Parser<Config>
+#endif
 {
 private:
     Config parseXml(QXmlStreamReader& xml) override;

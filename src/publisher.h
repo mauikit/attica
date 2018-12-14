@@ -31,8 +31,10 @@
 #include <QUrl>
 
 #include "buildservice.h"
-#include "attica_export.h"
 
+#ifndef STATIC_MAUIKIT
+#include "attica_export.h"
+#endif
 namespace Attica
 {
 
@@ -44,7 +46,11 @@ struct Field {
     QStringList options;
 };
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Publisher
+#else
+class Publisher
+#endif
 {
 public:
     typedef QList<Publisher> List;

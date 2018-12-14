@@ -28,7 +28,9 @@
 #include <QSharedDataPointer>
 #include <QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
@@ -36,7 +38,11 @@ namespace Attica
     The HomePageEntry class contains information about one home page entry.
     It consists of a type and a home page url.
  */
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT HomePageEntry
+#else
+class HomePageEntry
+#endif
 {
 public:
     typedef QList<HomePageEntry> List;

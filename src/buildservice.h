@@ -30,7 +30,9 @@
 #include <QtCore/QStringList>
 #include <QtCore/QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
@@ -40,7 +42,11 @@ struct Target {
     QString name;
 };
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT BuildService
+#else
+class BuildService
+#endif
 {
 public:
     typedef QList<BuildService> List;

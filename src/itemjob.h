@@ -24,7 +24,9 @@
 #ifndef ATTICA_ITEMJOB_H
 #define ATTICA_ITEMJOB_H
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 #include "getjob.h"
 #include "deletejob.h"
 #include "postjob.h"
@@ -35,7 +37,12 @@ namespace Attica
 class Provider;
 
 template <class T>
+
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT ItemJob : public GetJob
+#else
+class ItemJob : public GetJob
+#endif
 {
 public:
     T result() const;
@@ -48,7 +55,11 @@ private:
 };
 
 template <class T>
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT ItemDeleteJob : public DeleteJob
+#else
+class ItemDeleteJob : public DeleteJob
+#endif
 {
 public:
     T result() const;
@@ -61,7 +72,11 @@ private:
 };
 
 template <class T>
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT ItemPostJob : public PostJob
+#else
+class ItemPostJob : public PostJob
+#endif
 {
 public:
     T result() const;
@@ -76,7 +91,11 @@ private:
 };
 
 template <class T>
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT ItemPutJob : public PutJob
+#else
+class ItemPutJob : public PutJob
+#endif
 {
 public:
     T result() const;

@@ -23,15 +23,20 @@
 #ifndef ATTICA_TOPIC_H
 #define ATTICA_TOPIC_H
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
-
+#endif
 #include <QDateTime>
 #include <QSharedDataPointer>
 
 namespace Attica
 {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Topic
+#else
+class Topic
+#endif
 {
 public:
     typedef QList<Topic> List;

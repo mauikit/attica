@@ -23,7 +23,9 @@
 #ifndef ATTICA_ACHIEVEMENT_H
 #define ATTICA_ACHIEVEMENT_H
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 #include <QSharedDataPointer>
 #include <QStringList>
@@ -33,7 +35,11 @@
 namespace Attica
 {
 
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Achievement
+#else
+class Achievement
+#endif
 {
 public:
     typedef QList<Achievement> List;

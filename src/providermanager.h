@@ -28,7 +28,9 @@
 #include <QUrl>
 
 #include "provider.h"
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
@@ -50,7 +52,12 @@ namespace Attica
  *
  * Once you have loaded a Provider, use its functions to access the service.
  */
+
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT ProviderManager : public QObject
+#else
+class ProviderManager : public QObject
+#endif
 {
     Q_OBJECT
 
@@ -130,7 +137,7 @@ public:
      */
     QList<Provider> providers() const;
 
-    ATTICA_DEPRECATED bool contains(const QString &provider) const;
+    /*ATTICA_DEPRECATED*/ bool contains(const QString &provider) const;
 
     /**
      * @returns whether there's a provider with base url @p provider

@@ -28,7 +28,9 @@
 #include <QSharedDataPointer>
 #include <QUrl>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
@@ -36,7 +38,11 @@ namespace Attica
     The Distribution class contains information about one distribution that the server offers.
     It consists of an integer id and a distribution name.
  */
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Distribution
+#else
+class Distribution
+#endif
 {
 public:
     typedef QList<Distribution> List;

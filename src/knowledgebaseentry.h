@@ -23,8 +23,9 @@
 #ifndef ATTICA_KNOWLEDGEBASEENTRY_H
 #define ATTICA_KNOWLEDGEBASEENTRY_H
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
-
+#endif
 #include <QDateTime>
 #include <QSharedDataPointer>
 #include <QMap>
@@ -33,8 +34,11 @@
 
 namespace Attica
 {
-
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT KnowledgeBaseEntry
+#else
+class KnowledgeBaseEntry
+#endif
 {
 public:
     typedef QList<KnowledgeBaseEntry> List;

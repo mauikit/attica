@@ -27,7 +27,9 @@
 
 #include <QSharedDataPointer>
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 namespace Attica
 {
@@ -36,7 +38,11 @@ class BaseJob;
 /**
     *Status messages from the server
     */
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Metadata
+#else
+class Metadata
+#endif
 {
 public:
     Metadata();

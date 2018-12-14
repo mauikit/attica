@@ -24,7 +24,9 @@
 #ifndef ATTICA_EVENT_H
 #define ATTICA_EVENT_H
 
+#ifndef STATIC_MAUIKIT
 #include "attica_export.h"
+#endif
 
 #include <QDate>
 #include <QList>
@@ -38,7 +40,11 @@ namespace Attica
 /**
  * Represents a single event
  */
+#ifndef STATIC_MAUIKIT
 class ATTICA_EXPORT Event
+#else
+class Event
+#endif
 {
 public:
     typedef QList<Event> List;
